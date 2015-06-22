@@ -1,0 +1,46 @@
+
+roject:
+build board: 
+64 squares, each with properties: color, address(x,y), empty or occupied. Arrayed in alternating red and black 8x8 grid,
+24 pieces: address, owner (black or red), type (single or double), movable vs not,  jumped?
+Players: black or red, active or not, points starting at 0.
+End turn button, whose turn is it indicator
+
+Rules:
+
+A move consists of dragging one piece to a new (diagonally adjacent moving away from starting row) empty square or jumping an opposing piece. a move consists of dragging one piece to a new (diagonally adjacent) empty square or jumping an opposing piece. a jump is where there is an opposing piece in the next row forward, one right or left of the active players piece, with an open square after it (one more row ahead, +2 or -2 in the y direction. ): the player then drags their piece to the open square at (2,2) or (-2,2) (or also (2,-2) and (-2,-2) if the active piece is a king), the opposing piece disappears and the player is incremented one point.
+
+You win when your opponent has no possible moves or runs out of pieces.
+
+Rules/Turns: 
+Black begins: Turn on movability indicator for black, make their pieces movable. 
+
+A turn is:
+
+1. If no movable pieces: end turn and declare other player the winner.
+
+2. Identify any "jumpable" pieces: Survey player's own pieces: Do any have an opposing piece adjacent to them diagonnally
+      (one space right or left of the piece you are looking at, 
+      one row further away for single pieces, one row forward or back for kings);
+  ...with an open square after it (that is: one more row ahead (or back), +2 or -2 in the y direction)
+
+3. Active player makes a move:
+		If there are jumpable pieces and the move made is not a jump, error message "there is a piece you should jump", return piece to start.
+    		Move = jump other player's jumpable piece and land in empty space 2 diagonal away (going forward if the active piece is single, forward or backward if it's a king.)
+
+    3a: Then: If no other jumpable piece:
+         (If active piece is at the furthest row from start, set it to king.)
+        End turn.
+
+    3a: If the active piece now has another jumpable piece, user can jump there. 
+        Or they can indicate turn done, in which case, end turn.
+
+  If no jumpable pieces: 
+				Select and drag any movable piece to an empty adjacent diagonal space (forward only, for single pieces): 
+	
+	  (If active piece is at the furthest row from start, set it to king.)
+	  End turn.
+	  
+	  Switch other player to active.
+
+
