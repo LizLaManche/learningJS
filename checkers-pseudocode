@@ -1,10 +1,10 @@
 
-roject:
-build board: 
-64 squares, each with properties: color, address(x,y), empty or occupied. Arrayed in alternating red and black 8x8 grid,
-24 pieces: address, owner (black or red), type (single or double), movable vs not,  jumped?
+Project:
+Build board: 
+64 squares, each with properties: color (red or black), address(x,y), empty or occupied. Arrayed in alternating red and black 8x8 grid.
+24 pieces, each has: address, color (black or red), type (single or king), movable vs not, status "jumped"?
 Players: black or red, active or not, points starting at 0.
-End turn button, whose turn is it indicator
+Visual interface: Has "End turn" button, "whose turn is it" indicator, score for each player (captured pieces)
 
 Rules:
 
@@ -25,8 +25,8 @@ A turn is:
   ...with an open square after it (that is: one more row ahead (or back), +2 or -2 in the y direction)
 
 3. Active player makes a move:
-		If there are jumpable pieces and the move made is not a jump, error message "there is a piece you should jump", return piece to start.
-    		Move = jump other player's jumpable piece and land in empty space 2 diagonal away (going forward if the active piece is single, forward or backward if it's a king.)
+	If there are jumpable pieces and the move made is not a jump, error message "there is a piece you should jump", return piece to start.
+    	Move = jump other player's jumpable piece and land in empty space 2 diagonal away (going forward if the active piece is single, forward or backward if it's a king.)
 
     3a: Then: If no other jumpable piece:
          (If active piece is at the furthest row from start, set it to king.)
@@ -36,11 +36,11 @@ A turn is:
         Or they can indicate turn done, in which case, end turn.
 
   If no jumpable pieces: 
-				Select and drag any movable piece to an empty adjacent diagonal space (forward only, for single pieces): 
+	Select and drag any movable piece to an empty adjacent diagonal space (forward only, for single pieces): 
 	
-	  (If active piece is at the furthest row from start, set it to king.)
-	  End turn.
+	(If active piece is at the furthest row from start, set it to king.)
+	End turn.
 	  
-	  Switch other player to active.
+	Switch other player to active.
 
 
